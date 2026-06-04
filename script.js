@@ -1,6 +1,5 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
   const menuToggle = document.getElementById('mobile-menu');
   const navLinks = document.getElementById('nav-links');
   if (menuToggle) {
@@ -8,14 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.classList.toggle('active');
     });
   }
-  // Close menu when link clicked
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
     });
   });
 
-  // Scroll reveal animation
   const faders = document.querySelectorAll('.fade-up');
   const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -30px 0px" };
   const appearOnScroll = new IntersectionObserver((entries) => {
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }, appearOptions);
   faders.forEach(fader => { appearOnScroll.observe(fader); });
 
-  // Set active nav link based on current page
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll('.nav-links a').forEach(link => {
     const href = link.getAttribute('href');
