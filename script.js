@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.getElementById('mobile-menu');
   const navLinks = document.getElementById('nav-links');
