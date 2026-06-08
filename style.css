@@ -11,8 +11,8 @@
   --bg-card: #FFFFFF;
   --text-primary: #1A202C;
   --text-secondary: #4A5568;
-  --accent-gold: #F39C12;        /* Orange */
-  --accent-gold-dark: #E67E22;   /* Dark orange */
+  --accent-gold: #F39C12;
+  --accent-gold-dark: #E67E22;
   --border-color: #E2E8F0;
   --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
   --shadow-hover: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
@@ -80,14 +80,15 @@ header {
 
 .logo-text {
   font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-weight: 900;
   letter-spacing: -0.3px;
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .logo-slogan {
   font-size: 0.65rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--accent-gold);
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -405,17 +406,6 @@ footer {
 
 .footer-grid a:hover {
   color: var(--accent-gold);
-}
-
-.social-icons a {
-  color: var(--accent-gold);
-  margin-right: 18px;
-  font-size: 1.3rem;
-  transition: var(--transition);
-}
-
-.social-icons a:hover {
-  opacity: 0.7;
 }
 
 .footer-grid ul {
