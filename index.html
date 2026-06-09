@@ -12,22 +12,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .hero-logo {
-      max-width: 280px;
+    /* Override hero background to video */
+    .hero {
+      position: relative;
+      background: none;
+      overflow: hidden;
+      padding: 80px 0 100px;
+    }
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      margin: 0 auto;
-      display: block;
-      filter: drop-shadow(0 0 20px rgba(243, 156, 18, 0.3));
-      transition: transform 0.4s ease, filter 0.4s ease;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
-    .hero-logo:hover {
-      transform: scale(1.02);
-      filter: drop-shadow(0 0 30px rgba(243, 156, 18, 0.5));
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
     }
-    @media (max-width: 768px) {
-      .hero-logo {
-        max-width: 200px;
-      }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    /* adjust text colors for better readability on dark video background */
+    .hero h1, .hero .stat h3, .hero .stat span, .hero p, .hero-badge {
+      color: #fff !important;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.85) !important;
+    }
+    .hero-badge {
+      background: rgba(243,156,18,0.25) !important;
+    }
+    .hero-stats .stat span {
+      color: rgba(255,255,255,0.8) !important;
+    }
+    .hero-image {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(2px);
+    }
+    .btn-primary {
+      background: var(--accent-gold);
+      color: #1A202C;
+      border-color: var(--accent-gold);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent-gold);
+    }
+    .hero-logo {
+      filter: drop-shadow(0 0 15px rgba(0,0,0,0.3));
     }
   </style>
 </head>
@@ -52,7 +93,13 @@
   </div>
 </header>
 <main>
+  <!-- Hero section with video background -->
   <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video-bg">
+      <source src="images/bridge-terminal-architecture-23544.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-overlay"></div>
     <div class="container hero-grid">
       <div class="hero-content fade-up">
         <span class="hero-badge"><i class="fas fa-globe-asia"></i> Global Trade Partner</span>
@@ -70,7 +117,6 @@
       </div>
     </div>
   </section>
-
   <section class="section">
     <div class="container">
       <h2 class="section-title fade-up">Integrated trade solutions</h2>
