@@ -12,6 +12,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Adjust logo sizes */
+    .logo-image {
+      height: 45px;
+      width: auto;
+      max-width: 180px;
+    }
+    /* Hero right logo smaller */
+    .hero-logo {
+      max-width: 200px;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(243, 156, 18, 0.3));
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .hero-logo:hover {
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 30px rgba(243, 156, 18, 0.5));
+    }
+    @media (max-width: 768px) {
+      .hero-logo {
+        max-width: 150px;
+      }
+      .logo-image {
+        height: 38px;
+      }
+    }
     /* Override hero background to video */
     .hero {
       position: relative;
@@ -57,6 +84,8 @@
     .hero-image {
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(2px);
+      border-radius: 40px;
+      padding: 20px;
     }
     .btn-primary {
       background: var(--accent-gold);
@@ -67,16 +96,13 @@
       background: transparent;
       color: var(--accent-gold);
     }
-    .hero-logo {
-      filter: drop-shadow(0 0 15px rgba(0,0,0,0.3));
-    }
   </style>
 </head>
 <body>
 <header>
   <div class="container navbar">
     <a href="index.html" class="logo">
-      <img src="images/logo.svg" alt="Goods Hub Limited Logo" class="logo-image">
+      <img src="images/logo.svg" alt="Goods Hub Limited Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="logo-text-wrapper">
         <span class="logo-text">Goods Hub</span>
         <span class="logo-slogan">Smarter trade, simpler supply</span>
@@ -95,7 +121,7 @@
 <main>
   <!-- Hero section with video background -->
   <section class="hero">
-    <video autoplay muted loop playsinline class="hero-video-bg">
+    <video autoplay muted loop playsinline class="hero-video-bg" id="bgVideo">
       <source src="images/bridge-terminal-architecture-23544.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
@@ -113,7 +139,7 @@
         </div>
       </div>
       <div class="hero-image fade-up">
-        <img src="images/logo.svg" alt="Goods Hub Limited Brand Logo" class="hero-logo">
+        <img src="images/logo.svg" alt="Goods Hub Limited Brand Logo" class="hero-logo" onerror="this.style.display='none';">
       </div>
     </div>
   </section>
@@ -191,5 +217,15 @@
   </div>
 </footer>
 <script src="script.js"></script>
+<script>
+  // Slow down the background video
+  document.addEventListener('DOMContentLoaded', function() {
+    var video = document.getElementById('bgVideo');
+    if (video) {
+      // Set playback speed to 75% (values lower than 1.0 make it slower)
+      video.playbackRate = 0.75;
+    }
+  });
+</script>
 </body>
 </html>
